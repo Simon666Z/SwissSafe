@@ -1,4 +1,4 @@
-# StaySafe - Product Legality Checker
+# SwissSafe - Product Legality Checker
 
 An AI-powered web application that checks if products from TEMU or SHEIN are legal for sale or import in Switzerland.
 
@@ -24,9 +24,9 @@ An AI-powered web application that checks if products from TEMU or SHEIN are leg
 
 ## 🚀 Quick Start
 
-1. **Clone and navigate to the project**:
+1. **Navigate to the project directory**:
    ```bash
-   cd /Users/simonz666/Desktop/ETHZ/3_Semester/SwissAIHack2025/CursorVers
+   cd /Users/simonz666/Desktop/ETHZ/3_Semester/SwissAIHack2025/SwissSafe
    ```
 
 2. **Start the application**:
