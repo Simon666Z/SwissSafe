@@ -20,10 +20,10 @@ export const URLCard: React.FC<URLInputFormProps> = ({
     <div className="w-full">
       <div className="text-center mb-8">
         <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 animate-gradient-x">
-          Swiss Compliance Checker
+          SwissSafe
         </h1>
         <p className="text-gray-400 mt-4 max-w-md mx-auto text-lg animate-fade-in-up delay-200">
-          Enter a product URL to check its import legality.
+          Enter the product URL to check its import legality
         </p>
       </div>
 
