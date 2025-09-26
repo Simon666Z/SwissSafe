@@ -72,11 +72,14 @@ export default function Home() {
         const transformedResult: AnalysisResult = {
           status: backendResult.status.toLowerCase() as "legal" | "prohibited" | "uncertain",
           reason: backendResult.reasoning,
+          confidence: backendResult.confidence || 0.5,
           product: {
             name: `Product from ${new URL(url).hostname}`,
           },
           sourceUrl: url,
         };
+
+        console.log("New result confidence:", transformedResult.confidence); // Debug logging
 
         setResult(transformedResult);
         setHistory((prev) => [
