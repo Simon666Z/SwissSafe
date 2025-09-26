@@ -5,6 +5,7 @@ services:
       - "8000:8000"
     environment:
       - PYTHONUNBUFFERED=1
+      - SWISS_AI_PLATFORM_API_KEY=${SWISS_AI_PLATFORM_API_KEY:-khPqGsNrtVsaL5lWoyhChUuvwEGr}
     volumes:
       - ./backend:/app
     command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload

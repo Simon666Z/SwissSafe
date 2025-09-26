@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from openai import OpenAI
 import os
+import json
+import re
 from typing import Dict, Any
 
 app = FastAPI(title="StaySafe API", description="AI-based tool to check product legality in Switzerland")
@@ -16,8 +18,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# OpenAI client
-client = OpenAI(api_key="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")
+# Swiss AI Platform Apertus client
+client = OpenAI(
+    api_key=os.getenv("SWISS_AI_PLATFORM_API_KEY", "khPqGsNrtVsaL5lWoyhChUuvwEGr"),
+    base_url="https://api.swisscom.com/layer/swiss-ai-weeks/apertus-70b/v1"
+)
 
 class ProductRequest(BaseModel):
     url: str
@@ -37,7 +42,7 @@ async def check_product(request: ProductRequest):
     Check if a product from TEMU or SHEIN is legal for sale/import in Switzerland
     """
     try:
-        # Create a detailed prompt for OpenAI
+        # Create a detailed prompt for Swiss AI Platform Apertus
         prompt = f"""
         You are an expert in Swiss import and sales regulations. Analyze the following product URL and determine if the product is legal for sale or import in Switzerland.
 
@@ -56,26 +61,33 @@ async def check_product(request: ProductRequest):
         5. Age restrictions
         6. Chemical/biological restrictions
 
-        Provide your response in the following JSON format:
+        IMPORTANT: You must respond with ONLY valid JSON in exactly this format:
         {{
-            "status": "Legal/Uncertain/Illegal",
+            "status": "Legal",
             "reasoning": "Detailed explanation of your decision",
             "confidence": 0.85
         }}
 
-        Be thorough in your analysis and provide specific reasoning based on Swiss regulations.
+        Do not include any text before or after the JSON. Do not use markdown formatting. Return only the JSON object.
         """
 
-        # Call OpenAI API
-        response = client.chat.completions.create(
-            model="gpt-4",
-            messages=[
-                {"role": "system", "content": "You are an expert in Swiss import and sales regulations. Always respond with valid JSON."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.3,
-            max_tokens=500
-        )
+        # Call Swiss AI Platform Apertus API
+        try:
+            response = client.chat.completions.create(
+                model="swiss-ai/Apertus-70B",
+                messages=[
+                    {"role": "system", "content": "You are an expert in Swiss import and sales regulations. Always respond with valid JSON."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.3,
+                max_tokens=500
+            )
+        except Exception as api_error:
+            return ProductResponse(
+                status="Uncertain",
+                reasoning=f"API error: {str(api_error)}",
+                confidence=0.1
+            )
 
         # Parse the response
         result_text = response.choices[0].message.content.strip()
@@ -84,17 +96,30 @@ async def check_product(request: ProductRequest):
         import json
         import re
         
-        # Look for JSON in the response
-        json_match = re.search(r'\{.*\}', result_text, re.DOTALL)
-        if json_match:
-            try:
-                result = json.loads(json_match.group())
+        # First, try to parse the entire response as JSON
+        try:
+            result = json.loads(result_text)
+            if isinstance(result, dict) and "status" in result:
                 return ProductResponse(
                     status=result.get("status", "Uncertain"),
                     reasoning=result.get("reasoning", "Analysis completed"),
                     confidence=result.get("confidence", 0.5)
                 )
-            except json.JSONDecodeError:
+        except json.JSONDecodeError:
+            pass
+        
+        # If that fails, look for JSON in the response
+        json_match = re.search(r'\{.*\}', result_text, re.DOTALL)
+        if json_match:
+            try:
+                json_text = json_match.group()
+                result = json.loads(json_text)
+                return ProductResponse(
+                    status=result.get("status", "Uncertain"),
+                    reasoning=result.get("reasoning", "Analysis completed"),
+                    confidence=result.get("confidence", 0.5)
+                )
+            except json.JSONDecodeError as e:
                 pass
         
         # Fallback if JSON parsing fails

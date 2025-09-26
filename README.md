@@ -4,7 +4,7 @@ An AI-powered web application that checks if products from TEMU or SHEIN are leg
 
 ## 🚀 Features
 
-- **AI-Powered Analysis**: Uses OpenAI GPT-4 to analyze product URLs and determine legality
+- **AI-Powered Analysis**: Uses Swiss AI Platform Apertus 70B model to analyze product URLs and determine legality
 - **Modern Web UI**: Built with NextJS and Tailwind CSS for a beautiful, responsive interface
 - **Fast API Backend**: Python FastAPI backend with CORS support
 - **Docker Support**: Fully containerized for easy deployment
@@ -13,14 +13,14 @@ An AI-powered web application that checks if products from TEMU or SHEIN are leg
 ## 🏗️ Architecture
 
 - **Frontend**: NextJS 14 with TypeScript and Tailwind CSS
-- **Backend**: Python FastAPI with OpenAI integration
-- **AI Model**: OpenAI GPT-4 for product analysis
+- **Backend**: Python FastAPI with Swiss AI Platform Apertus integration
+- **AI Model**: Swiss AI Platform Apertus 70B for product analysis
 - **Containerization**: Docker and Docker Compose
 
 ## 📋 Prerequisites
 
 - Docker and Docker Compose
-- OpenAI API key (included in the project)
+- Swiss AI Platform API key (provided: khPqGsNrtVsaL5lWoyhChUuvwEGr)
 
 ## 🚀 Quick Start
 
@@ -29,12 +29,17 @@ An AI-powered web application that checks if products from TEMU or SHEIN are leg
    cd /Users/simonz666/Desktop/ETHZ/3_Semester/SwissAIHack2025/SwissSafe
    ```
 
-2. **Start the application**:
+2. **Set up your Swiss AI Platform API key** (optional - already configured):
+   ```bash
+   export SWISS_AI_PLATFORM_API_KEY="khPqGsNrtVsaL5lWoyhChUuvwEGr"
+   ```
+
+3. **Start the application**:
    ```bash
    docker-compose up --build
    ```
 
-3. **Access the application**:
+4. **Access the application**:
    - Frontend: http://localhost:3000
    - Backend API: http://localhost:8000
    - API Documentation: http://localhost:8000/docs
