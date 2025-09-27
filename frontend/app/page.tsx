@@ -103,11 +103,41 @@ export default function Home() {
     <div className="font-sans bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen relative overflow-hidden">
       {/* Swiss-Themed Background Montage */}
       <div className="fixed inset-0 z-0">
-        {/* Swiss Alps Landscape */}
+        {/* Real Swiss Images Background */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-12"
+          style={{
+            backgroundImage: `url("/switzerland-in-pictures-most-beautiful-places-matterhorn.jpg")`,
+          }}
+        ></div>
+        
+        {/* Schilthorn Image Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-8"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='1920' height='1080' viewBox='0 0 1920 1080' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='alps' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%230f172a;stop-opacity:0.9' /%3E%3Cstop offset='30%25' style='stop-color:%231e293b;stop-opacity:0.8' /%3E%3Cstop offset='70%25' style='stop-color:%23374151;stop-opacity:0.7' /%3E%3Cstop offset='100%25' style='stop-color:%234b5563;stop-opacity:0.6' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1920' height='1080' fill='url(%23alps)'/%3E%3Cg opacity='0.3'%3E%3Cpath d='M0,800 L200,600 L400,700 L600,500 L800,650 L1000,400 L1200,550 L1400,450 L1600,600 L1800,500 L1920,700 L1920,1080 L0,1080 Z' fill='%23ffffff'/%3E%3Cpath d='M0,900 L300,700 L600,800 L900,600 L1200,750 L1500,550 L1800,700 L1920,800 L1920,1080 L0,1080 Z' fill='%23e5e7eb'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("/schilthorn-3033448_1280-1.webp")`,
+            backgroundPosition: 'top right',
+            backgroundSize: '50%',
+          }}
+        ></div>
+        
+        {/* Swiss Landscape Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{
+            backgroundImage: `url("/switzer_land_d4ff3a3099.png")`,
+            backgroundPosition: 'bottom left',
+            backgroundSize: '40%',
+          }}
+        ></div>
+        
+        {/* Additional Swiss Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-6"
+          style={{
+            backgroundImage: `url("/960x0.webp")`,
+            backgroundPosition: 'center',
+            backgroundSize: '30%',
           }}
         ></div>
         
