@@ -101,121 +101,18 @@ export default function Home() {
 
   return (
     <div className="font-sans bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen relative overflow-hidden">
-      {/* Modern Swiss Image Grid Background */}
+      {/* Clean Geometric Background */}
       <div className="fixed inset-0 z-0">
-        {/* Grid Container */}
-        <div className="absolute inset-0 grid grid-cols-12 grid-rows-12 gap-4 p-8">
-          
-          {/* Matterhorn - Large Hero Grid */}
-          <div 
-            className="col-span-4 row-span-5 bg-cover bg-center rounded-2xl opacity-20 hover:opacity-30 transition-opacity duration-500"
-            style={{
-              backgroundImage: `url("/switzerland-in-pictures-most-beautiful-places-matterhorn.jpg")`,
-              transform: 'rotate(-2deg)',
-            }}
-          ></div>
-          
-          {/* Schilthorn - Medium Grid */}
-          <div 
-            className="col-span-3 row-span-3 bg-cover bg-center rounded-xl opacity-15 hover:opacity-25 transition-opacity duration-500"
-            style={{
-              backgroundImage: `url("/schilthorn-3033448_1280-1.webp")`,
-              transform: 'rotate(1deg)',
-            }}
-          ></div>
-          
-          {/* Swiss Landscape - Vertical Grid */}
-          <div 
-            className="col-span-2 row-span-6 bg-cover bg-center rounded-xl opacity-18 hover:opacity-28 transition-opacity duration-500"
-            style={{
-              backgroundImage: `url("/switzer_land_d4ff3a3099.png")`,
-              transform: 'rotate(-1deg)',
-            }}
-          ></div>
-          
-          {/* Additional Swiss Image - Small Grid */}
-          <div 
-            className="col-span-2 row-span-2 bg-cover bg-center rounded-lg opacity-12 hover:opacity-22 transition-opacity duration-500"
-            style={{
-              backgroundImage: `url("/960x0.webp")`,
-              transform: 'rotate(2deg)',
-            }}
-          ></div>
-          
-          {/* Matterhorn Duplicate - Small Accent */}
-          <div 
-            className="col-span-2 row-span-3 bg-cover bg-center rounded-xl opacity-10 hover:opacity-20 transition-opacity duration-500"
-            style={{
-              backgroundImage: `url("/switzerland-in-pictures-most-beautiful-places-matterhorn.jpg")`,
-              transform: 'rotate(-1deg)',
-            }}
-          ></div>
-          
-          {/* Schilthorn Duplicate - Tiny Accent */}
-          <div 
-            className="col-span-1 row-span-2 bg-cover bg-center rounded-lg opacity-8 hover:opacity-18 transition-opacity duration-500"
-            style={{
-              backgroundImage: `url("/schilthorn-3033448_1280-1.webp")`,
-              transform: 'rotate(1.5deg)',
-            }}
-          ></div>
-          
-          {/* Swiss Landscape Duplicate - Small Accent */}
-          <div 
-            className="col-span-2 row-span-2 bg-cover bg-center rounded-lg opacity-14 hover:opacity-24 transition-opacity duration-500"
-            style={{
-              backgroundImage: `url("/switzer_land_d4ff3a3099.png")`,
-              transform: 'rotate(-0.5deg)',
-            }}
-          ></div>
-          
-        </div>
-        
-        {/* Floating Swiss Elements Overlay */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Swiss Cross Elements */}
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div
-              key={`cross-${i}`}
-              className="absolute w-2 h-2 animate-float-slow"
-              style={{
-                left: `${20 + (i * 15)}%`,
-                top: `${30 + (i * 10)}%`,
-                animationDelay: `${i * 0.5}s`,
-                animationDuration: `${6 + (i % 2)}s`
-              }}
-            >
-              <div className="w-full h-full bg-red-600/30 relative rounded-sm">
-                <div className="absolute top-1/2 left-0 w-full h-0.5 bg-white/40 transform -translate-y-1/2"></div>
-                <div className="absolute left-1/2 top-0 w-0.5 h-full bg-white/40 transform -translate-x-1/2"></div>
-              </div>
-            </div>
-          ))}
-          
-          {/* Swiss Watch Elements */}
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div
-              key={`watch-${i}`}
-              className="absolute w-3 h-3 animate-float-medium"
-              style={{
-                left: `${70 + (i * 8)}%`,
-                top: `${20 + (i * 15)}%`,
-                animationDelay: `${i * 0.8}s`,
-                animationDuration: `${7 + (i % 2)}s`
-              }}
-            >
-              <div className="w-full h-full border border-white/30 rounded-full relative">
-                <div className="absolute top-1/2 left-1/2 w-0.5 h-1 bg-white/40 transform -translate-x-1/2 -translate-y-1/2"></div>
-                <div className="absolute top-1/2 left-1/2 w-1 h-0.5 bg-white/40 transform -translate-x-1/2 -translate-y-1/2"></div>
-                <div className="absolute top-1/2 left-1/2 w-0.5 h-0.5 bg-white/50 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
-              </div>
-            </div>
-          ))}
-        </div>
-        
+        {/* Elegant Geometric Pattern */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-8"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='1920' height='1080' viewBox='0 0 1920 1080' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23064748;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%230f172a;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%231e293b;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23064748;stop-opacity:0.3' /%3E%3Cstop offset='100%25' style='stop-color:%231e293b;stop-opacity:0.1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1920' height='1080' fill='url(%23grad1)'/%3E%3Cg opacity='0.4'%3E%3Cpath d='M0,0 L1920,540 L0,1080 Z' fill='url(%23grad2)'/%3E%3Cpath d='M1920,0 L0,540 L1920,1080 Z' fill='url(%23grad2)'/%3E%3C/g%3E%3Cg opacity='0.2'%3E%3Ccircle cx='960' cy='270' r='200' fill='none' stroke='%23064748' stroke-width='2'/%3E%3Ccircle cx='960' cy='810' r='150' fill='none' stroke='%23064748' stroke-width='1.5'/%3E%3Ccircle cx='480' cy='540' r='100' fill='none' stroke='%23064748' stroke-width='1'/%3E%3Ccircle cx='1440' cy='540' r='120' fill='none' stroke='%23064748' stroke-width='1'/%3E%3C/g%3E%3Cg opacity='0.15'%3E%3Cpath d='M0,0 Q480,270 960,540 T1920,1080' fill='none' stroke='%23064748' stroke-width='1'/%3E%3Cpath d='M1920,0 Q1440,270 960,540 T0,1080' fill='none' stroke='%23064748' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        ></div>
         
         {/* Subtle overlay to ensure readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/70 via-gray-800/50 to-gray-900/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/60 via-gray-800/40 to-gray-900/60"></div>
       </div>
 
       {/* Dynamic Animated Background */}
@@ -252,16 +149,16 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Enhanced floating particles */}
-        {Array.from({ length: 12 }).map((_, i) => (
+        {/* Minimal floating particles */}
+        {Array.from({ length: 4 }).map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-gray-400/20 rounded-full animate-particle-float"
+            className="absolute w-1 h-1 bg-gray-400/10 rounded-full animate-particle-float"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${8 + Math.random() * 4}s`
+              animationDuration: `${12 + Math.random() * 6}s`
             }}
           ></div>
         ))}
