@@ -17,8 +17,10 @@ export function HistoryList({
   }
 
   const statusColors: { [key in AnalysisResult["status"]]: string } = {
+    "legal": "text-green-500",
     "possibly legal": "text-green-400",
     "likely legal": "text-green-300",
+    "illegal": "text-red-500",
     "possibly illegal": "text-red-400",
     "likely illegal": "text-red-300",
   };

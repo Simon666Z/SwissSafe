@@ -71,7 +71,7 @@ export default function Home() {
         const backendResult = response.data;
         
         const transformedResult: AnalysisResult = {
-          status: backendResult.status as "possibly legal" | "possibly illegal" | "likely legal" | "likely illegal",
+          status: backendResult.status as "legal" | "possibly legal" | "possibly illegal" | "illegal" | "likely legal" | "likely illegal",
           reason: backendResult.reasoning,
           confidence: backendResult.confidence || 0.5,
           product: {
@@ -105,9 +105,9 @@ export default function Home() {
       <div className="fixed inset-0 z-0">
         {/* Enhanced Alpine Mountain Silhouettes - Fixed at Bottom */}
         <div 
-          className="absolute bottom-0 left-0 right-0 h-1/3 bg-no-repeat opacity-15"
+          className="absolute bottom-0 left-0 right-0 h-1/3 bg-no-repeat opacity-20 z-10"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='1920' height='360' viewBox='0 0 1920 360' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='mountain1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ffffff;stop-opacity:0.9' /%3E%3Cstop offset='100%25' style='stop-color:%23f8fafc;stop-opacity:0.5' /%3E%3C/linearGradient%3E%3ClinearGradient id='mountain2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23e2e8f0;stop-opacity:0.7' /%3E%3Cstop offset='100%25' style='stop-color:%23cbd5e1;stop-opacity:0.4' /%3E%3C/linearGradient%3E%3ClinearGradient id='mountain3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f1f5f9;stop-opacity:0.6' /%3E%3Cstop offset='100%25' style='stop-color:%23e2e8f0;stop-opacity:0.3' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cg opacity='0.5'%3E%3Cpath d='M0,200 L150,100 L300,150 L450,50 L600,120 L750,30 L900,80 L1050,40 L1200,100 L1350,60 L1500,120 L1650,80 L1800,100 L1920,140 L1920,360 L0,360 Z' fill='url(%23mountain1)'/%3E%3Cpath d='M0,250 L200,150 L400,200 L600,100 L800,180 L1000,80 L1200,150 L1400,100 L1600,180 L1800,120 L1920,180 L1920,360 L0,360 Z' fill='url(%23mountain2)'/%3E%3Cpath d='M0,280 L100,220 L250,250 L400,180 L550,240 L700,120 L850,200 L1000,160 L1150,240 L1300,200 L1450,260 L1600,220 L1750,240 L1920,260 L1920,360 L0,360 Z' fill='url(%23mountain3)'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='1920' height='360' viewBox='0 0 1920 360' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='mountain1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ffffff;stop-opacity:0.8' /%3E%3Cstop offset='30%25' style='stop-color:%23f8fafc;stop-opacity:0.6' /%3E%3Cstop offset='70%25' style='stop-color:%23e2e8f0;stop-opacity:0.4' /%3E%3Cstop offset='100%25' style='stop-color:%23cbd5e1;stop-opacity:0.2' /%3E%3C/linearGradient%3E%3ClinearGradient id='mountain2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f1f5f9;stop-opacity:0.7' /%3E%3Cstop offset='40%25' style='stop-color:%23e2e8f0;stop-opacity:0.5' /%3E%3Cstop offset='80%25' style='stop-color:%23cbd5e1;stop-opacity:0.3' /%3E%3Cstop offset='100%25' style='stop-color:%23a1a1aa;stop-opacity:0.2' /%3E%3C/linearGradient%3E%3ClinearGradient id='mountain3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ffffff;stop-opacity:0.6' /%3E%3Cstop offset='50%25' style='stop-color:%23f1f5f9;stop-opacity:0.4' /%3E%3Cstop offset='100%25' style='stop-color:%23e2e8f0;stop-opacity:0.2' /%3E%3C/linearGradient%3E%3ClinearGradient id='snow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ffffff;stop-opacity:0.9' /%3E%3Cstop offset='100%25' style='stop-color:%23f8fafc;stop-opacity:0.6' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cg opacity='0.7'%3E%3Cpath d='M0,200 L150,60 L300,120 L450,30 L600,90 L750,15 L900,70 L1050,25 L1200,85 L1350,40 L1500,100 L1650,50 L1800,80 L1920,110 L1920,360 L0,360 Z' fill='url(%23mountain1)'/%3E%3Cpath d='M0,250 L120,180 L280,220 L420,160 L580,200 L720,140 L880,190 L1020,150 L1180,210 L1320,170 L1480,230 L1620,180 L1780,220 L1920,250 L1920,360 L0,360 Z' fill='url(%23mountain2)'/%3E%3Cpath d='M0,280 L100,240 L250,270 L380,220 L520,260 L650,200 L780,250 L920,190 L1050,240 L1180,200 L1310,250 L1440,210 L1570,260 L1700,220 L1830,270 L1920,290 L1920,360 L0,360 Z' fill='url(%23mountain3)'/%3E%3C/g%3E%3Cg opacity='0.8'%3E%3Cpath d='M0,200 L150,60 L300,120 L450,30 L600,90 L750,15 L900,70 L1050,25 L1200,85 L1350,40 L1500,100 L1650,50 L1800,80 L1920,110 L1920,360 L0,360 Z' fill='url(%23snow)'/%3E%3C/g%3E%3C/svg%3E")`,
             backgroundPosition: 'bottom',
             backgroundSize: 'cover',
           }}
@@ -277,7 +277,7 @@ export default function Home() {
       </div>
 
       <main
-        className={`min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 transition-all duration-500 relative z-10 ${
+        className={`min-h-screen flex flex-col items-center justify-center pb-20 p-4 sm:p-6 transition-all duration-500 relative z-10 ${
           history.length > 0 ? "md:ml-72" : ""
         }`}
       >

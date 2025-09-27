@@ -4,6 +4,11 @@ import { CheckCircle2, XCircle, AlertTriangle } from "lucide-react";
 
 export function ResultCard({ result }: { result: AnalysisResult }) {
   const statusConfig = {
+    "legal": {
+      icon: <CheckCircle2 className="h-6 w-6" />,
+      card: "bg-green-900/50 border-green-700 text-green-200",
+      header: "text-green-300",
+    },
     "possibly legal": {
       icon: <CheckCircle2 className="h-6 w-6" />,
       card: "bg-green-900/50 border-green-700 text-green-200",
@@ -13,6 +18,11 @@ export function ResultCard({ result }: { result: AnalysisResult }) {
       icon: <CheckCircle2 className="h-6 w-6" />,
       card: "bg-green-800/50 border-green-600 text-green-200",
       header: "text-green-300",
+    },
+    "illegal": {
+      icon: <XCircle className="h-6 w-6" />,
+      card: "bg-red-900/50 border-red-700 text-red-200",
+      header: "text-red-300",
     },
     "possibly illegal": {
       icon: <XCircle className="h-6 w-6" />,

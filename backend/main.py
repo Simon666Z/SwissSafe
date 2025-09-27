@@ -20,7 +20,7 @@ app.add_middleware(
 
 # Swiss AI Platform Apertus client
 client = OpenAI(
-    api_key=os.getenv("SWISS_AI_PLATFORM_API_KEY", "AIzaSyAjXeHCYhsgdtIeX6XTefkfhu4HDrKnf8E"),
+    api_key=os.getenv("SWISS_AI_PLATFORM_API_KEY", "khPqGsNrtVsaL5lWoyhChUuvwEGr"),
     base_url="https://api.swisscom.com/layer/swiss-ai-weeks/apertus-70b/v1"
 )
 
@@ -28,7 +28,7 @@ class ProductRequest(BaseModel):
     url: str
 
 class ProductResponse(BaseModel):
-    status: str  # "Legal", "Uncertain", or "Illegal"
+    status: str  # "legal", "illegal", "possibly legal", "possibly illegal", "likely legal", "likely illegal"
     reasoning: str
     confidence: float
 
@@ -45,74 +45,13 @@ async def check_product(request: ProductRequest):
         # Create a detailed prompt for Swiss AI Platform Apertus
         prompt = f"""
             You are a meticulous Swiss import compliance expert. Decide whether a product is Legal, Illegal, or Uncertain for import and private possession in Switzerland.
-
-            Product URL: {request.url}
-
-            Procedure:
-
-            Fetch & parse the page: title, category, specs (power/class, materials, chemical concentrations, age/weapon claims), warnings, and any image alt text. Note missing/ambiguous data.
-
-            Normalize category (examples): laser_pointer, signal_jammer, stun_gun, knife_switchblade, fireworks_F3/F4, radar_detector, weapon_accessory, chemical, toy, electronics, cosmetic, food, other.
-
-            Check against official Swiss sources (only):
-
-            FOCBS/BAZG: https://www.bazg.admin.ch/
-
-            Fedlex: https://www.fedlex.admin.ch/
-
-            FOPH/BAG (health/chemicals/safety)
-            Prefer explicit, current rules; quote them briefly in reasoning.
-
-            Decision rules
-
-            Illegal: Clear, specific match to a prohibited category/spec (e.g., laser pointer not explicitly Class 1; signal/Wi-Fi/GPS jammer; stun gun/taser; switchblade/balisong; high-category fireworks F3/F4/P2; radar detector; firearm suppressor; banned chemicals/concentrations).
-
-            Legal: No conflicts found and product appears compliant (or ordinary goods) given the parsed specs and official guidance.
-
-            STATUS OUTPUT BASED ON CONFIDENCE:
-            - Confidence ≥ 0.5: "possibly legal" or "possibly illegal"
-            - Confidence < 0.5: "likely legal" or "likely illegal"
-            - Never use "uncertain" - always choose legal or illegal based on available evidence
-
-            Confidence (0–1) - Base on product type and evidence quality:
-
-            0.80–0.95: Clear prohibited items with explicit specs (laser class 3+, weapons, dangerous chemicals) OR clearly safe common products (basic clothing, simple accessories) with no concerning materials mentioned.
-
-            0.60–0.79: Common products (electronics, toys, cosmetics) with some uncertainty about materials/certifications but no obvious violations.
-
-            0.40–0.59: Ambiguous products with missing key specs or conflicting information.
-
-            0.10–0.39: Very unclear product type or insufficient information.
-
-            CONFIDENCE GUIDELINES BY PRODUCT TYPE:
-            - Basic clothing/textiles (t-shirts, pants, basic accessories): 0.7-0.8 (generally safe unless toxic materials mentioned)
-            - Simple electronics (phone cases, cables, basic gadgets, chargers): 0.6-0.7 (generally safe, common consumer items)
-            - Toys/games: 0.5-0.6 (age restrictions and safety concerns)
-            - Cosmetics/chemicals: 0.4-0.6 (depends on ingredients and concentrations)
-            - Weapons/dangerous items: 0.8-0.9 (clearly prohibited)
-            - Generic/unclear products: 0.3-0.5 (insufficient information)
-
-            IMPORTANT: For common consumer products (clothing, phone cases, basic electronics) that don't contain prohibited keywords, use confidence 0.6-0.8 unless there are specific safety concerns mentioned.
-
-            Keywords in URL are signals only, not decisive; confirm with page content and/or official sources.
-
-            Do not invent laws. If no official citation applies, state that and prefer Uncertain over guessing.
-
-            Output (STRICT JSON ONLY — no extra text)
+            Is it legal to import this into switzerland? Product URL: {request.url}
 
             Return exactly one JSON object:
 
-            "status": "possibly legal | possibly illegal | likely legal | likely illegal",
+            "status": "legal | possibly legal | possibly illegal | illegal | likely legal | likely illegal",
             "reasoning": "2–5 sentences, factual, referencing page specs and official guidance (cite source names/URLs briefly).",
-            "confidence": 0.0,
-            "category": "normalized_product_type",
-            "matched_rules": ["laser-pointer-class>1", "signal-jammer", "stun-gun", "knife-switchblade", "fireworks-F3/F4", "radar-detector", "weapon-accessory", "chemical-restriction", "safety-cert-missing"],
-            "evidence": [
-            "verbatim/near-verbatim snippet from the product page (e.g., '5 mW green laser 303')",
-            "second snippet if available"
-            ],
-            "missing_information": ["which spec/document would resolve uncertainty (e.g., laser class, CE conformity, ingredient %)"],
-            "fetch_error": false
+            "confidence": 0.0,  # 0.0 to 1.0
 
             Return ONLY valid JSON. No markdown, no prose outside the JSON.
         """
@@ -125,8 +64,8 @@ async def check_product(request: ProductRequest):
                     {"role": "system", "content": "You are an expert in Swiss import and sales regulations. Always respond with valid JSON."},
                     {"role": "user", "content": prompt}
                 ],
-                temperature=0.3,
-                max_tokens=500
+                temperature=0.9,
+                max_tokens=50000
             )
         except Exception as api_error:
             return ProductResponse(

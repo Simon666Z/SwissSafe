@@ -1,6 +1,6 @@
 // lib/types.ts
 export interface AnalysisResult {
-  status: "possibly legal" | "possibly illegal" | "likely legal" | "likely illegal";
+  status: "legal" | "possibly legal" | "possibly illegal" | "illegal" | "likely legal" | "likely illegal";
   reason: string;
   confidence: number;
   product: {

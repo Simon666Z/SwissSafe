@@ -18,7 +18,7 @@ export const URLCard: React.FC<URLInputFormProps> = ({
 }) => {
   return (
     <div className="w-full">
-      <div className="text-center mb-8">
+      <div className="text-center mb-6">
         <h1 className="text-5xl font-display font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 animate-gradient-x tracking-tight">
           SwissSafe
         </h1>
