@@ -20,7 +20,7 @@ app.add_middleware(
 
 # Swiss AI Platform Apertus client
 client = OpenAI(
-    api_key=os.getenv("SWISS_AI_PLATFORM_API_KEY", "khPqGsNrtVsaL5lWoyhChUuvwEGr"),
+    api_key=os.getenv("SWISS_AI_PLATFORM_API_KEY", "AIzaSyAjXeHCYhsgdtIeX6XTefkfhu4HDrKnf8E"),
     base_url="https://api.swisscom.com/layer/swiss-ai-weeks/apertus-70b/v1"
 )
 
