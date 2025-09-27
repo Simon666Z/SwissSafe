@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Swiss Flag Background -->
+  <rect width="32" height="32" rx="4" fill="#FF0000"/>
+  
+  <!-- Swiss Cross -->
+  <!-- Horizontal bar -->
+  <rect x="4" y="12" width="24" height="8" fill="#FFFFFF"/>
+  <!-- Vertical bar -->
+  <rect x="12" y="4" width="8" height="24" fill="#FFFFFF"/>
+</svg>
