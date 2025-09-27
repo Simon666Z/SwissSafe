@@ -101,18 +101,68 @@ export default function Home() {
 
   return (
     <div className="font-sans bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen relative overflow-hidden">
-      {/* Clean Geometric Background */}
+      {/* Swiss-Themed Geometric Background */}
       <div className="fixed inset-0 z-0">
+        {/* Alpine Mountain Silhouettes */}
+        <div 
+          className="absolute inset-0 bg-no-repeat opacity-6"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='1920' height='1080' viewBox='0 0 1920 1080' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.3'%3E%3Cpath d='M0,800 L200,600 L400,700 L600,500 L800,650 L1000,400 L1200,550 L1400,450 L1600,600 L1800,500 L1920,700 L1920,1080 L0,1080 Z' fill='%23ffffff'/%3E%3Cpath d='M0,900 L300,700 L600,800 L900,600 L1200,750 L1500,550 L1800,700 L1920,800 L1920,1080 L0,1080 Z' fill='%23e5e7eb'/%3E%3C/g%3E%3Cg opacity='0.2'%3E%3Cpath d='M0,850 L150,700 L300,750 L450,600 L600,700 L750,500 L900,650 L1050,550 L1200,700 L1350,600 L1500,750 L1650,650 L1800,700 L1920,750 L1920,1080 L0,1080 Z' fill='%23f3f4f6'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundPosition: 'bottom',
+            backgroundSize: 'cover',
+          }}
+        ></div>
+        
+        {/* Swiss Watch Elements */}
+        <div 
+          className="absolute inset-0 bg-no-repeat opacity-4"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='1920' height='1080' viewBox='0 0 1920 1080' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.3'%3E%3Ccircle cx='200' cy='200' r='60' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Ccircle cx='200' cy='200' r='45' fill='none' stroke='%23ffffff' stroke-width='1'/%3E%3Cline x1='200' y1='200' x2='200' y2='170' stroke='%23ffffff' stroke-width='2'/%3E%3Cline x1='200' y1='200' x2='220' y2='200' stroke='%23ffffff' stroke-width='1.5'/%3E%3Ccircle cx='200' cy='200' r='2' fill='%23ffffff'/%3E%3C/g%3E%3Cg opacity='0.2'%3E%3Ccircle cx='1700' cy='300' r='80' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Ccircle cx='1700' cy='300' r='60' fill='none' stroke='%23ffffff' stroke-width='1'/%3E%3Cline x1='1700' y1='300' x2='1700' y2='270' stroke='%23ffffff' stroke-width='2'/%3E%3Cline x1='1700' y1='300' x2='1720' y2='300' stroke='%23ffffff' stroke-width='1.5'/%3E%3Ccircle cx='1700' cy='300' r='2' fill='%23ffffff'/%3E%3C/g%3E%3Cg opacity='0.15'%3E%3Ccircle cx='400' cy='800' r='50' fill='none' stroke='%23ffffff' stroke-width='1'/%3E%3Ccircle cx='400' cy='800' r='35' fill='none' stroke='%23ffffff' stroke-width='0.8'/%3E%3Cline x1='400' y1='800' x2='400' y2='770' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cline x1='400' y1='800' x2='415' y2='800' stroke='%23ffffff' stroke-width='1'/%3E%3Ccircle cx='400' cy='800' r='1.5' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundPosition: 'scattered',
+            backgroundSize: 'contain',
+          }}
+        ></div>
+        
+        {/* Swiss Cross Pattern */}
+        <div 
+          className="absolute inset-0 bg-no-repeat opacity-5"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='1920' height='1080' viewBox='0 0 1920 1080' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.2'%3E%3Crect x='100' y='100' width='30' height='30' fill='%23dc2626'/%3E%3Crect x='110' y='90' width='10' height='50' fill='white'/%3E%3Crect x='90' y='110' width='50' height='10' fill='white'/%3E%3C/g%3E%3Cg opacity='0.15'%3E%3Crect x='1800' y='200' width='25' height='25' fill='%23dc2626'/%3E%3Crect x='1807' y='193' width='6' height='39' fill='white'/%3E%3Crect x='1887' y='207' width='39' height='6' fill='white'/%3E%3C/g%3E%3Cg opacity='0.1'%3E%3Crect x='500' y='700' width='20' height='20' fill='%23dc2626'/%3E%3Crect x='506' y='694' width='8' height='32' fill='white'/%3E%3Crect x='494' y='706' width='32' height='8' fill='white'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundPosition: 'scattered',
+            backgroundSize: 'contain',
+          }}
+        ></div>
+        
+        {/* Swiss Cheese Holes Pattern */}
+        <div 
+          className="absolute inset-0 bg-no-repeat opacity-3"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='1920' height='1080' viewBox='0 0 1920 1080' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.2'%3E%3Ccircle cx='300' cy='400' r='12' fill='none' stroke='%23ffffff' stroke-width='0.8'/%3E%3Ccircle cx='350' cy='450' r='10' fill='none' stroke='%23ffffff' stroke-width='0.8'/%3E%3Ccircle cx='280' cy='480' r='14' fill='none' stroke='%23ffffff' stroke-width='0.8'/%3E%3Ccircle cx='320' cy='520' r='8' fill='none' stroke='%23ffffff' stroke-width='0.8'/%3E%3C/g%3E%3Cg opacity='0.15'%3E%3Ccircle cx='1500' cy='600' r='16' fill='none' stroke='%23ffffff' stroke-width='0.8'/%3E%3Ccircle cx='1550' cy='650' r='12' fill='none' stroke='%23ffffff' stroke-width='0.8'/%3E%3Ccircle cx='1480' cy='680' r='14' fill='none' stroke='%23ffffff' stroke-width='0.8'/%3E%3Ccircle cx='1520' cy='720' r='10' fill='none' stroke='%23ffffff' stroke-width='0.8'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundPosition: 'scattered',
+            backgroundSize: 'contain',
+          }}
+        ></div>
+        
+        {/* Swiss Bank Vault Pattern */}
+        <div 
+          className="absolute inset-0 bg-no-repeat opacity-4"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='1920' height='1080' viewBox='0 0 1920 1080' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.15'%3E%3Crect x='800' y='150' width='50' height='70' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Ccircle cx='825' cy='185' r='12' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cline x1='825' y1='173' x2='825' y2='197' stroke='%23ffffff' stroke-width='1'/%3E%3Cline x1='813' y1='185' x2='837' y2='185' stroke='%23ffffff' stroke-width='1'/%3E%3C/g%3E%3Cg opacity='0.1'%3E%3Crect x='1200' y='800' width='40' height='60' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Ccircle cx='1220' cy='830' r='10' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cline x1='1220' y1='820' x2='1220' y2='840' stroke='%23ffffff' stroke-width='1'/%3E%3Cline x1='1210' y1='830' x2='1230' y2='830' stroke='%23ffffff' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundPosition: 'scattered',
+            backgroundSize: 'contain',
+          }}
+        ></div>
+        
         {/* Elegant Geometric Pattern */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-8"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-6"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='1920' height='1080' viewBox='0 0 1920 1080' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23064748;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%230f172a;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%231e293b;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23064748;stop-opacity:0.3' /%3E%3Cstop offset='100%25' style='stop-color:%231e293b;stop-opacity:0.1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1920' height='1080' fill='url(%23grad1)'/%3E%3Cg opacity='0.4'%3E%3Cpath d='M0,0 L1920,540 L0,1080 Z' fill='url(%23grad2)'/%3E%3Cpath d='M1920,0 L0,540 L1920,1080 Z' fill='url(%23grad2)'/%3E%3C/g%3E%3Cg opacity='0.2'%3E%3Ccircle cx='960' cy='270' r='200' fill='none' stroke='%23064748' stroke-width='2'/%3E%3Ccircle cx='960' cy='810' r='150' fill='none' stroke='%23064748' stroke-width='1.5'/%3E%3Ccircle cx='480' cy='540' r='100' fill='none' stroke='%23064748' stroke-width='1'/%3E%3Ccircle cx='1440' cy='540' r='120' fill='none' stroke='%23064748' stroke-width='1'/%3E%3C/g%3E%3Cg opacity='0.15'%3E%3Cpath d='M0,0 Q480,270 960,540 T1920,1080' fill='none' stroke='%23064748' stroke-width='1'/%3E%3Cpath d='M1920,0 Q1440,270 960,540 T0,1080' fill='none' stroke='%23064748' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='1920' height='1080' viewBox='0 0 1920 1080' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23064748;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%230f172a;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%231e293b;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23064748;stop-opacity:0.3' /%3E%3Cstop offset='100%25' style='stop-color:%231e293b;stop-opacity:0.1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1920' height='1080' fill='url(%23grad1)'/%3E%3Cg opacity='0.3'%3E%3Cpath d='M0,0 L1920,540 L0,1080 Z' fill='url(%23grad2)'/%3E%3Cpath d='M1920,0 L0,540 L1920,1080 Z' fill='url(%23grad2)'/%3E%3C/g%3E%3Cg opacity='0.15'%3E%3Ccircle cx='960' cy='270' r='150' fill='none' stroke='%23064748' stroke-width='1.5'/%3E%3Ccircle cx='960' cy='810' r='120' fill='none' stroke='%23064748' stroke-width='1'/%3E%3Ccircle cx='480' cy='540' r='80' fill='none' stroke='%23064748' stroke-width='0.8'/%3E%3Ccircle cx='1440' cy='540' r='100' fill='none' stroke='%23064748' stroke-width='0.8'/%3E%3C/g%3E%3Cg opacity='0.1'%3E%3Cpath d='M0,0 Q480,270 960,540 T1920,1080' fill='none' stroke='%23064748' stroke-width='0.8'/%3E%3Cpath d='M1920,0 Q1440,270 960,540 T0,1080' fill='none' stroke='%23064748' stroke-width='0.8'/%3E%3C/g%3E%3C/svg%3E")`,
           }}
         ></div>
         
         {/* Subtle overlay to ensure readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/60 via-gray-800/40 to-gray-900/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/65 via-gray-800/45 to-gray-900/65"></div>
       </div>
 
       {/* Dynamic Animated Background */}
@@ -149,6 +199,45 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Swiss-themed floating elements */}
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div
+            key={`cross-${i}`}
+            className="absolute w-2 h-2 animate-float-slow"
+            style={{
+              left: `${20 + (i * 15)}%`,
+              top: `${30 + (i * 10)}%`,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${6 + (i % 2)}s`
+            }}
+          >
+            <div className="w-full h-full bg-red-600/20 relative rounded-sm">
+              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-white/30 transform -translate-y-1/2"></div>
+              <div className="absolute left-1/2 top-0 w-0.5 h-full bg-white/30 transform -translate-x-1/2"></div>
+            </div>
+          </div>
+        ))}
+        
+        {/* Swiss Watch floating elements */}
+        {Array.from({ length: 4 }).map((_, i) => (
+          <div
+            key={`watch-${i}`}
+            className="absolute w-3 h-3 animate-float-medium"
+            style={{
+              left: `${70 + (i * 8)}%`,
+              top: `${20 + (i * 15)}%`,
+              animationDelay: `${i * 0.8}s`,
+              animationDuration: `${7 + (i % 2)}s`
+            }}
+          >
+            <div className="w-full h-full border border-white/20 rounded-full relative">
+              <div className="absolute top-1/2 left-1/2 w-0.5 h-1 bg-white/30 transform -translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute top-1/2 left-1/2 w-1 h-0.5 bg-white/30 transform -translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute top-1/2 left-1/2 w-0.5 h-0.5 bg-white/40 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+            </div>
+          </div>
+        ))}
+        
         {/* Minimal floating particles */}
         {Array.from({ length: 4 }).map((_, i) => (
           <div
