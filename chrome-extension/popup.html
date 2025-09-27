@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwissSafe</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>SwissSafe</h1>
+      <p class="subtitle">Product Legality Checker</p>
+    </div>
+
+    <div class="url-section">
+      <div class="url-input-container">
+        <input type="text" id="urlInput" placeholder="Enter product URL..." />
+        <button id="checkBtn" class="check-button">
+          <span class="button-text">Check Legality</span>
+          <div class="spinner hidden"></div>
+        </button>
+      </div>
+    </div>
+
+    <div id="result" class="result-container hidden">
+      <div class="result-card">
+        <div class="result-header">
+          <div class="status-icon"></div>
+          <div class="status-text"></div>
+        </div>
+        
+        <div class="confidence-section">
+          <div class="confidence-label">Confidence Level</div>
+          <div class="confidence-bar">
+            <div class="confidence-fill"></div>
+            <div class="confidence-percentage"></div>
+          </div>
+        </div>
+
+        <div class="reasoning-section">
+          <div class="reasoning-label">Analysis</div>
+          <div class="reasoning-text"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="error" class="error-container hidden">
+      <div class="error-message"></div>
+    </div>
+
+    <div class="footer">
+      <div class="history-section">
+        <div class="history-header">
+          <span>Recent Checks</span>
+          <button id="clearHistory" class="clear-button">Clear</button>
+        </div>
+        <div id="historyList" class="history-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

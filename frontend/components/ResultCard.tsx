@@ -3,23 +3,26 @@ import { AnalysisResult } from "@/lib/types";
 import { CheckCircle2, XCircle, AlertTriangle } from "lucide-react";
 
 export function ResultCard({ result }: { result: AnalysisResult }) {
-  console.log("ResultCard received confidence:", result.confidence); // Debug logging
-  
   const statusConfig = {
-    legal: {
+    "possibly legal": {
       icon: <CheckCircle2 className="h-6 w-6" />,
       card: "bg-green-900/50 border-green-700 text-green-200",
       header: "text-green-300",
     },
-    prohibited: {
+    "likely legal": {
+      icon: <CheckCircle2 className="h-6 w-6" />,
+      card: "bg-green-800/50 border-green-600 text-green-200",
+      header: "text-green-300",
+    },
+    "possibly illegal": {
       icon: <XCircle className="h-6 w-6" />,
       card: "bg-red-900/50 border-red-700 text-red-200",
       header: "text-red-300",
     },
-    uncertain: {
-      icon: <AlertTriangle className="h-6 w-6" />,
-      card: "bg-yellow-900/50 border-yellow-700 text-yellow-200",
-      header: "text-yellow-300",
+    "likely illegal": {
+      icon: <XCircle className="h-6 w-6" />,
+      card: "bg-red-800/50 border-red-600 text-red-200",
+      header: "text-red-300",
     },
   };
 

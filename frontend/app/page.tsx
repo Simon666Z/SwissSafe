@@ -69,8 +69,9 @@ export default function Home() {
         });
 
         const backendResult = response.data;
+        
         const transformedResult: AnalysisResult = {
-          status: backendResult.status.toLowerCase() as "legal" | "prohibited" | "uncertain",
+          status: backendResult.status as "possibly legal" | "possibly illegal" | "likely legal" | "likely illegal",
           reason: backendResult.reasoning,
           confidence: backendResult.confidence || 0.5,
           product: {
@@ -78,8 +79,6 @@ export default function Home() {
           },
           sourceUrl: url,
         };
-
-        console.log("New result confidence:", transformedResult.confidence); // Debug logging
 
         setResult(transformedResult);
         setHistory((prev) => [
