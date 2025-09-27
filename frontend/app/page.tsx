@@ -101,6 +101,18 @@ export default function Home() {
 
   return (
     <div className="font-sans bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen relative overflow-hidden">
+      {/* Beautiful High-Resolution Wallpaper */}
+      <div className="fixed inset-0 z-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='1920' height='1080' viewBox='0 0 1920 1080' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23064748;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%230f172a;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%231e293b;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23064748;stop-opacity:0.3' /%3E%3Cstop offset='100%25' style='stop-color:%231e293b;stop-opacity:0.1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1920' height='1080' fill='url(%23grad1)'/%3E%3Cg opacity='0.4'%3E%3Cpath d='M0,0 L1920,540 L0,1080 Z' fill='url(%23grad2)'/%3E%3Cpath d='M1920,0 L0,540 L1920,1080 Z' fill='url(%23grad2)'/%3E%3C/g%3E%3Cg opacity='0.2'%3E%3Ccircle cx='960' cy='270' r='200' fill='none' stroke='%23064748' stroke-width='2'/%3E%3Ccircle cx='960' cy='810' r='150' fill='none' stroke='%23064748' stroke-width='1.5'/%3E%3Ccircle cx='480' cy='540' r='100' fill='none' stroke='%23064748' stroke-width='1'/%3E%3Ccircle cx='1440' cy='540' r='120' fill='none' stroke='%23064748' stroke-width='1'/%3E%3C/g%3E%3Cg opacity='0.15'%3E%3Cpath d='M0,0 Q480,270 960,540 T1920,1080' fill='none' stroke='%23064748' stroke-width='1'/%3E%3Cpath d='M1920,0 Q1440,270 960,540 T0,1080' fill='none' stroke='%23064748' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        ></div>
+        {/* Subtle overlay to ensure readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/60 via-gray-800/40 to-gray-900/60"></div>
+      </div>
+
       {/* Dynamic Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         {/* Floating geometric shapes */}
