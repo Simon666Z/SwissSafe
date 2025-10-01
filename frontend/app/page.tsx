@@ -14,6 +14,7 @@ export default function Home() {
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [history, setHistory] = useState<AnalysisResult[]>([]);
 
+  // load history from storage
   useEffect(() => {
     try {
       const storedHistory = localStorage.getItem("searchHistory");
@@ -25,6 +26,7 @@ export default function Home() {
     }
   }, []);
 
+  // save history to storage
   useEffect(() => {
     localStorage.setItem("searchHistory", JSON.stringify(history));
   }, [history]);
@@ -101,9 +103,9 @@ export default function Home() {
 
   return (
     <div className="font-sans bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen relative overflow-hidden">
-      {/* Swiss-Themed Geometric Background */}
+      {/* swiss background */}
       <div className="fixed inset-0 z-0">
-        {/* Enhanced Alpine Mountain Silhouettes - Fixed at Bottom */}
+        {/* mountains */}
         <div 
           className="absolute bottom-0 left-0 right-0 h-1/3 bg-no-repeat opacity-20 z-10"
           style={{
@@ -113,7 +115,7 @@ export default function Home() {
           }}
         ></div>
         
-        {/* Distributed Swiss Watch Elements All Over Screen */}
+        {/* watches */}
         <div 
           className="absolute inset-0 bg-no-repeat opacity-6"
           style={{
@@ -123,7 +125,7 @@ export default function Home() {
           }}
         ></div>
         
-        {/* Distributed Swiss Cross Pattern All Over Screen */}
+        {/* crosses */}
         <div 
           className="absolute inset-0 bg-no-repeat opacity-3"
           style={{
@@ -133,7 +135,7 @@ export default function Home() {
           }}
         ></div>
         
-        {/* Subtle Swiss Cheese Holes Pattern */}
+        {/* cheese holes */}
         <div 
           className="absolute inset-0 bg-no-repeat opacity-1"
           style={{
@@ -143,7 +145,7 @@ export default function Home() {
           }}
         ></div>
         
-        {/* Subtle Swiss Bank Vault Pattern */}
+        {/* bank vault */}
         <div 
           className="absolute inset-0 bg-no-repeat opacity-2"
           style={{
@@ -153,7 +155,7 @@ export default function Home() {
           }}
         ></div>
         
-        {/* Elegant Geometric Pattern */}
+        {/* geometric pattern */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-6"
           style={{
@@ -161,13 +163,13 @@ export default function Home() {
           }}
         ></div>
         
-        {/* Subtle overlay to ensure readability */}
+        {/* overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/65 via-gray-800/45 to-gray-900/65"></div>
       </div>
 
-      {/* Dynamic Animated Background */}
+      {/* animated background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        {/* Floating geometric shapes */}
+        {/* floating shapes */}
         <div className="absolute top-20 left-10 w-4 h-4 bg-gray-600/20 rounded-full animate-float-slow"></div>
         <div className="absolute top-40 right-20 w-6 h-6 bg-gray-500/15 rotate-45 animate-float-medium"></div>
         <div className="absolute top-60 left-1/4 w-3 h-3 bg-gray-400/25 rounded-full animate-float-fast"></div>
@@ -178,12 +180,12 @@ export default function Home() {
         <div className="absolute bottom-60 left-1/3 w-3 h-3 bg-gray-600/25 rounded-full animate-float-slow"></div>
         <div className="absolute bottom-80 right-1/4 w-5 h-5 bg-gray-500/20 rotate-12 animate-float-medium"></div>
 
-        {/* Large floating orbs */}
+        {/* floating orbs */}
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-emerald-500/5 to-cyan-500/5 rounded-full blur-3xl animate-orb-drift-slow"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-cyan-500/5 to-emerald-500/5 rounded-full blur-3xl animate-orb-drift-medium"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-gray-500/3 to-gray-600/3 rounded-full blur-3xl animate-orb-drift-fast"></div>
 
-        {/* Animated grid pattern */}
+        {/* grid */}
         <div className="absolute inset-0 opacity-[0.02]">
           <div className="grid grid-cols-12 grid-rows-12 h-full w-full">
             {Array.from({ length: 144 }).map((_, i) => (
@@ -199,7 +201,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Swiss-themed floating elements */}
+        {/* swiss elements */}
         {Array.from({ length: 6 }).map((_, i) => (
           <div
             key={`cross-${i}`}
@@ -218,7 +220,7 @@ export default function Home() {
           </div>
         ))}
         
-        {/* Enhanced Swiss Watch floating elements */}
+        {/* watch elements */}
         {Array.from({ length: 6 }).map((_, i) => (
           <div
             key={`watch-${i}`}
@@ -238,7 +240,7 @@ export default function Home() {
           </div>
         ))}
         
-        {/* Minimal floating particles */}
+        {/* particles */}
         {Array.from({ length: 4 }).map((_, i) => (
           <div
             key={i}
@@ -252,12 +254,12 @@ export default function Home() {
           ></div>
         ))}
 
-        {/* Subtle wave animations */}
+        {/* waves */}
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-800/10 to-transparent animate-wave-slow"></div>
         <div className="absolute top-0 right-0 w-full h-32 bg-gradient-to-b from-gray-700/10 to-transparent animate-wave-medium"></div>
       </div>
 
-      {/* Fixed, scrollable history panel in the top-left */}
+      {/* history panel */}
       <div className="fixed top-6 left-6 z-50 w-72 max-h-[70vh] overflow-auto hidden md:block">
         {history.length > 0 && (
           <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4 shadow-2xl animate-slide-in-left">

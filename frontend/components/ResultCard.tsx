@@ -40,10 +40,10 @@ export function ResultCard({ result }: { result: AnalysisResult }) {
 
   return (
     <div className={clsx("p-6 rounded-xl border w-full text-left backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] relative", config.card)}>
-      {/* Product Name */}
+      {/* product name */}
       <p className="font-semibold text-xl text-white/90 mb-4 animate-fade-in-up">{result.product.name}</p>
 
-      {/* Status */}
+      {/* status */}
       <div className="flex items-center gap-4 mt-4 animate-fade-in-up delay-100">
         <span className={`${config.header} animate-bounce`}>{config.icon}</span>
         <p className={`text-2xl font-bold ${config.header} animate-pulse`}>
@@ -51,7 +51,7 @@ export function ResultCard({ result }: { result: AnalysisResult }) {
         </p>
       </div>
 
-      {/* Confidence Bar */}
+      {/* confidence bar */}
       <div className="mt-6 animate-fade-in-up delay-150">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm font-medium text-white/80">Confidence Level</span>
@@ -67,10 +67,10 @@ export function ResultCard({ result }: { result: AnalysisResult }) {
             )}
             style={{ width: `${result.confidence * 100}%` }}
           >
-            {/* Animated shimmer effect */}
+            {/* shimmer */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
           </div>
-          {/* Confidence markers */}
+          {/* markers */}
           <div className="absolute inset-0 flex justify-between items-center px-1">
             <div className="w-1 h-1 bg-white/30 rounded-full"></div>
             <div className="w-1 h-1 bg-white/30 rounded-full"></div>
@@ -85,10 +85,10 @@ export function ResultCard({ result }: { result: AnalysisResult }) {
         </div>
       </div>
 
-      {/* Reason */}
+      {/* reason */}
       <p className="mt-6 text-white/70 text-lg leading-relaxed animate-fade-in-up delay-200">{result.reason}</p>
       
-      {/* Animated border effect */}
+      {/* border effect */}
       <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-emerald-500/20 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
     </div>
   );
