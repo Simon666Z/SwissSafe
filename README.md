@@ -5,18 +5,27 @@ An AI-powered web application that checks if products from TEMU or SHEIN are leg
 ## Features
 
 **AI-Powered Analysis**: Uses Swiss AI Platform Apertus 70B model to analyze product URLs and determine legality
+
 **Modern Web UI**: Built with NextJS and Tailwind CSS for a beautiful, responsive interface
+
 **Fast API Backend**: Python FastAPI backend with CORS support
+
 **Docker Support**: Fully containerized for easy deployment
+
 **Real-time Results**: Instant feedback with confidence levels and detailed reasoning
+
 **Chrome Extension**: Browser extension for quick product checking while shopping
 
 ## Architecture
 
 **Frontend**: NextJS 14 with TypeScript and Tailwind CSS
+
 **Backend**: Python FastAPI with Swiss AI Platform Apertus integration
+
 **AI Model**: Swiss AI Platform Apertus 70B for product analysis
+
 **Containerization**: Docker and Docker Compose
+
 **Browser Extension**: Chrome extension with Manifest V3
 
 ## Prerequisites
@@ -74,18 +83,18 @@ cd chrome-extension
 
 ## API Endpoints
 
-POST /check-product
+POST /check-product:
 
 Check if a product is legal for sale/import in Switzerland.
 
-**Request Body**:
+Request Body:
 ```json
 {
   "url": "https://www.temu.com/product-url"
 }
 ```
 
-**Response**:
+Response:
 ```json
 {
   "status": "legal|possibly legal|possibly illegal|illegal|likely legal|likely illegal",
@@ -94,7 +103,7 @@ Check if a product is legal for sale/import in Switzerland.
 }
 ```
 
-GET /health
+GET /health:
 
 Health check endpoint.
 
