@@ -1,9 +1,9 @@
-// Chrome Extension Content Script
+// chrome extension content script
 (function() {
   'use strict';
 
   // Detect if we're on an e-commerce site
-  function isEcommerceSite() {
+  // check if ecommerce site
     const hostname = window.location.hostname.toLowerCase();
     const ecommerceSites = [
       'amazon', 'ebay', 'aliexpress', 'temu', 'shein', 'wish', 
@@ -14,11 +14,11 @@
   }
 
   // Extract product information from the page
-  function extractProductInfo() {
+  // get product info from page
     const url = window.location.href;
     const title = document.title;
     
-    // Try to find product name in common selectors
+    // try to find product name
     const productNameSelectors = [
       'h1[data-testid="product-title"]',
       '.product-title',
@@ -48,8 +48,8 @@
   }
 
   // Add SwissSafe button to the page
-  function addSwissSafeButton() {
-    // Check if button already exists
+  // add swisssafe button
+    // check if button exists
     if (document.getElementById('swisssafe-button')) {
       return;
     }
@@ -68,7 +68,7 @@
       </div>
     `;
 
-    // Add styles
+    // add styles
     const style = document.createElement('style');
     style.textContent = `
       .swisssafe-button-container {
@@ -113,7 +113,7 @@
     document.head.appendChild(style);
     document.body.appendChild(button);
 
-    // Add click handler
+    // add click handler
     button.addEventListener('click', () => {
       const productInfo = extractProductInfo();
       
@@ -126,7 +126,7 @@
   }
 
   // Show notification for product check results
-  function showNotification(result) {
+  // show notification
     const notification = document.createElement('div');
     notification.className = 'swisssafe-notification';
     notification.innerHTML = `
@@ -144,7 +144,7 @@
       </div>
     `;
 
-    // Add notification styles
+    // add notification styles
     const notificationStyle = document.createElement('style');
     notificationStyle.textContent = `
       .swisssafe-notification {
@@ -257,7 +257,7 @@
     document.head.appendChild(notificationStyle);
     document.body.appendChild(notification);
 
-    // Auto-remove after 10 seconds
+    // auto remove after 10 seconds
     setTimeout(() => {
       if (notification.parentNode) {
         notification.style.animation = 'slideInRight 0.3s ease reverse';
@@ -267,7 +267,7 @@
       }
     }, 10000);
 
-    // Close button handler
+    // close button handler
     notification.querySelector('.swisssafe-notification-close').addEventListener('click', () => {
       notification.style.animation = 'slideInRight 0.3s ease reverse';
       setTimeout(() => {
@@ -276,16 +276,16 @@
     });
   }
 
-  // Listen for messages from background script
+  // listen for messages
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === 'showNotification') {
       showNotification(request.result);
     }
   });
 
-  // Initialize on e-commerce sites
+  // init on ecommerce sites
   if (isEcommerceSite()) {
-    // Wait for page to load
+    // wait for page load
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', addSwissSafeButton);
     } else {

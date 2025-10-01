@@ -1,4 +1,4 @@
-// Chrome Extension Popup Script
+// chrome extension popup
 class SwissSafePopup {
   constructor() {
     this.apiUrl = 'http://localhost:8000';

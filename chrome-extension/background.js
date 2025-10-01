@@ -1,9 +1,9 @@
-// Chrome Extension Background Script
+// chrome extension background script
 chrome.runtime.onInstalled.addListener(() => {
   console.log('SwissSafe extension installed');
 });
 
-// Handle messages from content script or popup
+// handle messages
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === 'checkProduct') {
     checkProductLegality(request.url)
@@ -37,7 +37,7 @@ async function checkProductLegality(url) {
   }
 }
 
-// Context menu for right-click checking
+// context menu for right click
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: 'checkProductLegality',
@@ -50,10 +50,10 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === 'checkProductLegality') {
     let url = info.linkUrl || info.pageUrl;
     
-    // Open popup with the URL
+    // open popup with url
     chrome.action.openPopup();
     
-    // Send message to popup with the URL
+    // send message to popup
     chrome.runtime.sendMessage({
       action: 'setUrl',
       url: url

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// Chrome Extension Validation Script
+// chrome extension validation script
 const fs = require('fs');
 const path = require('path');
 
@@ -26,7 +26,7 @@ const requiredIcons = [
 
 let allValid = true;
 
-// Check required files
+// check required files
 console.log('\n📁 Checking required files:');
 requiredFiles.forEach(file => {
   if (fs.existsSync(file)) {
@@ -37,7 +37,7 @@ requiredFiles.forEach(file => {
   }
 });
 
-// Check manifest.json
+// check manifest
 console.log('\n📋 Validating manifest.json:');
 try {
   const manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
@@ -68,7 +68,7 @@ try {
   allValid = false;
 }
 
-// Check icons
+// check icons
 console.log('\n🎨 Checking icons:');
 requiredIcons.forEach(icon => {
   if (fs.existsSync(icon)) {
@@ -78,7 +78,7 @@ requiredIcons.forEach(icon => {
   }
 });
 
-// Check popup files
+// check popup files
 console.log('\n🖥️  Checking popup files:');
 if (fs.existsSync('popup.html')) {
   const popupContent = fs.readFileSync('popup.html', 'utf8');
@@ -98,7 +98,7 @@ if (fs.existsSync('popup.js')) {
   }
 }
 
-// Summary
+// summary
 console.log('\n📊 Validation Summary:');
 if (allValid) {
   console.log('  ✅ All required files present and valid');
