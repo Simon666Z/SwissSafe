@@ -1,42 +1,42 @@
 # SwissSafe - Product Legality Checker
 
-An AI-powered web application that checks if products from TEMU or SHEIN are legal for sale or import in Switzerland.
+An AI-powered web application that checks if products from TEMU or SHEIN are legal for import into Switzerland.
 
 ## Features
 
-- **AI-Powered Analysis**: Uses Swiss AI Platform Apertus 70B model to analyze product URLs and determine legality
-- **Modern Web UI**: Built with NextJS and Tailwind CSS for a beautiful, responsive interface
-- **Fast API Backend**: Python FastAPI backend with CORS support
-- **Docker Support**: Fully containerized for easy deployment
-- **Real-time Results**: Instant feedback with confidence levels and detailed reasoning
-- **Chrome Extension**: Browser extension for quick product checking while shopping
+**AI-Powered Analysis**: Uses Swiss AI Platform Apertus 70B model to analyze product URLs and determine legality
+**Modern Web UI**: Built with NextJS and Tailwind CSS for a beautiful, responsive interface
+**Fast API Backend**: Python FastAPI backend with CORS support
+**Docker Support**: Fully containerized for easy deployment
+**Real-time Results**: Instant feedback with confidence levels and detailed reasoning
+**Chrome Extension**: Browser extension for quick product checking while shopping
 
 ## Architecture
 
-- **Frontend**: NextJS 14 with TypeScript and Tailwind CSS
-- **Backend**: Python FastAPI with Swiss AI Platform Apertus integration
-- **AI Model**: Swiss AI Platform Apertus 70B for product analysis
-- **Containerization**: Docker and Docker Compose
-- **Browser Extension**: Chrome extension with Manifest V3
+**Frontend**: NextJS 14 with TypeScript and Tailwind CSS
+**Backend**: Python FastAPI with Swiss AI Platform Apertus integration
+**AI Model**: Swiss AI Platform Apertus 70B for product analysis
+**Containerization**: Docker and Docker Compose
+**Browser Extension**: Chrome extension with Manifest V3
 
 ## Prerequisites
 
 - Docker and Docker Compose
-- Swiss AI Platform API key (provided: khPqGsNrtVsaL5lWoyhChUuvwEGr)
-- Node.js 18+ (for local development)
-- Python 3.11+ (for local development)
+- Apertus LLM API key
+- Node.js 18+
+- Python 3.11+
 
 ## Quick Start
 
-1. **Clone the repository**:
+1. **Clone the repo**:
    ```bash
    git clone https://github.com/Simon666Z/SwissSafe.git
    cd SwissSafe
    ```
 
-2. **Set up your Swiss AI Platform API key** (optional - already configured):
+2. **Set up your LLM API key** (can change to other llm api in backend/main.py):
    ```bash
-   export SWISS_AI_PLATFORM_API_KEY="khPqGsNrtVsaL5lWoyhChUuvwEGr"
+   export SWISS_AI_PLATFORM_API_KEY="your_apertus_api_key" 
    ```
 
 3. **Start the application**:
@@ -74,7 +74,8 @@ cd chrome-extension
 
 ## API Endpoints
 
-### POST /check-product
+POST /check-product
+
 Check if a product is legal for sale/import in Switzerland.
 
 **Request Body**:
@@ -93,7 +94,8 @@ Check if a product is legal for sale/import in Switzerland.
 }
 ```
 
-### GET /health
+GET /health
+
 Health check endpoint.
 
 ## Usage
@@ -107,16 +109,6 @@ Health check endpoint.
 1. Install the Chrome extension from the chrome-extension folder
 2. Click the SwissSafe icon while browsing e-commerce sites
 3. Right-click any product link and select "Check with SwissSafe"
-
-## AI Analysis
-
-The system analyzes products based on:
-- Product type and category
-- Swiss import restrictions
-- Safety regulations
-- Prohibited items (e.g., class 2+ laser pointers)
-- Age restrictions
-- Chemical/biological restrictions
 
 ## Project Structure
 
@@ -132,7 +124,7 @@ SwissSafe/
 
 ## Team
 
-This project was developed by a team of students for the Swiss AI Hackathon 2025. We're passionate about using AI to solve real-world problems and make Switzerland a safer place for online shopping.
+This project was developed by a team of computer science students at ETH Zürich for the Swiss AI Hackathon 2025.
 
 ## Disclaimer
 
@@ -144,7 +136,7 @@ MIT License - Built for Swiss AI Hackathon 2025
 
 ## Hackathon Challenge
 
-**Problem**: Prevent users from buying products that are prohibited for sale in or import to Switzerland.
+**Problem**: Help users check the legality of products from online shopping websites to be imported to Switzerland.
 
 **Solution**: AI-based tool that instantly checks the legality of e-commerce products using product identification numbers from major platforms like TEMU or SHEIN.
 
@@ -155,8 +147,8 @@ MIT License - Built for Swiss AI Hackathon 2025
 
 ## Contributing
 
-This project was created for the Swiss AI Hackathon 2025 challenge "Don't walk straight into the trap (Gov3)". Feel free to fork and improve upon our work!
+This project was created for the Swiss AI Hackathon 2025 challenge "Don't walk straight into the trap (Gov3)".
 
 ## Acknowledgments
 
-Thanks to the Swiss AI Platform for providing access to the Apertus 70B model, and to our professors and mentors who guided us through this hackathon project.
+Thanks to Swiss AI week for the opportunity and providing API Key; thanks to Swiss gov expert who guided and supported us through the hackathon project!!
