@@ -45,7 +45,7 @@ async def check_product(request: ProductRequest):
         # Create a detailed prompt for Swiss AI Platform Apertus
         prompt = f"""
             You are a meticulous Swiss import compliance expert. Decide whether a product is Legal, Illegal, or Uncertain for import and private possession in Switzerland.
-            Is it legal to import this into switzerland? Product URL: {request.url}
+            Is it illegal to import this into switzerland? Product URL: {request.url}
 
             Return exactly one JSON object:
 
