@@ -9,7 +9,7 @@ from typing import Dict, Any
 
 app = FastAPI(title="StaySafe API", description="AI-based tool to check product legality in Switzerland")
 
-# Configure CORS
+# cors config
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],  # NextJS frontend
@@ -18,7 +18,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Swiss AI Platform Apertus client
+# apertus client
 client = OpenAI(
     api_key=os.getenv("SWISS_AI_PLATFORM_API_KEY", "khPqGsNrtVsaL5lWoyhChUuvwEGr"),
     base_url="https://api.swisscom.com/layer/swiss-ai-weeks/apertus-70b/v1"
@@ -39,10 +39,10 @@ async def root():
 @app.post("/check-product", response_model=ProductResponse)
 async def check_product(request: ProductRequest):
     """
-    Check if a product from TEMU or SHEIN is legal for sale/import in Switzerland
+    check if product is legal for switzerland
     """
     try:
-        # Create a detailed prompt for Swiss AI Platform Apertus
+        # create prompt for apertus
         prompt = f"""
             You are a meticulous Swiss import compliance expert. Decide whether a product is Legal, Illegal, or Uncertain for import and private possession in Switzerland.
             Is it illegal to import this into switzerland? Product URL: {request.url}
@@ -56,7 +56,7 @@ async def check_product(request: ProductRequest):
             Return ONLY valid JSON. No markdown, no prose outside the JSON.
         """
 
-        # Call Swiss AI Platform Apertus API
+        # call apertus api
         try:
             response = client.chat.completions.create(
                 model="swiss-ai/Apertus-70B",
@@ -74,14 +74,14 @@ async def check_product(request: ProductRequest):
                 confidence=0.1
             )
 
-        # Parse the response
+        # parse response
         result_text = response.choices[0].message.content.strip()
         
-        # Try to extract JSON from the response
+        # try to extract json
         import json
         import re
         
-        # First, try to parse the entire response as JSON
+        # first try parsing entire response
         try:
             result = json.loads(result_text)
             if isinstance(result, dict) and "status" in result:
@@ -93,7 +93,7 @@ async def check_product(request: ProductRequest):
         except json.JSONDecodeError:
             pass
         
-        # If that fails, look for JSON in the response
+        # if that fails, look for json in response
         json_match = re.search(r'\{.*\}', result_text, re.DOTALL)
         if json_match:
             try:
@@ -107,7 +107,7 @@ async def check_product(request: ProductRequest):
             except json.JSONDecodeError as e:
                 pass
         
-        # Fallback if JSON parsing fails
+        # fallback if json parsing fails
         return ProductResponse(
             status="Uncertain",
             reasoning="Unable to parse AI response. Please try again.",
